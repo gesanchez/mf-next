@@ -6,6 +6,7 @@ module.exports = withFederatedSidecar({
   exposes: {
     "./title": "./components/Title",
     "./checkout": "./pages/checkout",
+    "./p/test": "./pages/p/test",
     "./pages-map": "./pages-map",
   },
   shared: {
@@ -15,6 +16,9 @@ module.exports = withFederatedSidecar({
     },
   },
 })({
+  future: {
+    webpack5: true
+  },
   webpack5: true,
   webpack(config, options) {
     const { webpack } = options;
@@ -23,7 +27,7 @@ module.exports = withFederatedSidecar({
     config.output.publicPath = "auto";
 
     config.module.rules.push({
-      test: /_app.js/,
+      test: /_app.tsx/,
       loader: "@module-federation/nextjs-mf/lib/federation-loader.js",
     });
     if (options.isServer) {

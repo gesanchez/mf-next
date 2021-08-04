@@ -11,6 +11,9 @@ const Nav = () => (
         <Link href="/checkout">
           <a>Checkout</a>
         </Link>
+        <Link href="/p/test">
+          <a>Test</a>
+        </Link>
       </li>
     </ul>
 

@@ -11,11 +11,8 @@ import dynamic from "next/dynamic";
 //     ssr: false
 //   }
 // );
-const RemoteTitle = dynamic(() => import('checkout/title'), 
-{ 
-  loading: () => <div>RemoteTitle is loading</div>,
-  ssr: false
-});
+const RemoteTitle = dynamic(() => window.checkout?.get("./title").then((factory) => factory()), { ssr: false });
+
 
 const Home = ({}: any) => {
   return (

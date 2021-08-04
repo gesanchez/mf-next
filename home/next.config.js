@@ -17,13 +17,16 @@ module.exports = withFederatedSidecar({
     },
   },
 })({
+  future: {
+    webpack5: true
+  },
   webpack5: true,
   webpack(config, options) {
     const { webpack, isServer } = options;
     config.experiments = { topLevelAwait: true };
 
     config.module.rules.push({
-      test: /_app.js/,
+      test: /_app.tsx/,
       loader: "@module-federation/nextjs-mf/lib/federation-loader.js",
     });
 
