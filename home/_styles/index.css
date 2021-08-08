@@ -1,0 +1,6 @@
+@import "./bootstrap.css";
+@import "./paper_theme.css";
+
+body, html {
+  background-color: #f4f3ef;
+}

@@ -78,8 +78,11 @@ export function createFederatedCatchAll(remotes) {
       const matchedPage = await matchFederatedPage(remotes, ctx.asPath);
       console.log("matchedPage", matchedPage);
 
-      const remote = matchedPage?.value?.remote;
-      const mod = matchedPage?.value?.module;
+      //const remote = matchedPage?.value?.remote;
+      //const mod = matchedPage?.value?.module;
+
+      const remote = (matchedPage) ? matchedPage.value.remote: null;
+      const mod = (matchedPage) ? matchedPage.value.module: null;
 
       if (!remote || !mod) {
         // TODO: Run getInitialProps for 404 page
@@ -109,8 +112,7 @@ export function createFederatedCatchAll(remotes) {
         ...ctx,
         query: matchedPage.params,
       };
-      const federatedPageProps =
-        (await FederatedPage.getInitialProps?.(modifiedContext)) || {};
+      const federatedPageProps = (await FederatedPage.getInitialProps(modifiedContext)) || {};
       return { ...federatedPageProps, FederatedPage };
     } catch (err) {
       console.log("err", err);

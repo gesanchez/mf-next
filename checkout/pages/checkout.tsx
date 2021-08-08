@@ -1,5 +1,7 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
+import * as style from "./checkout.module.css";
 
 const Checkout = (props: any) => (
   <div>
@@ -8,39 +10,23 @@ const Checkout = (props: any) => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <div className="hero">
+    <div className={style.hero}>
       <h1>checkout page</h1>
-      <h3 className="title">
+      <h3 className={style.title}>
         This is a federated page owned by localhost:3000
       </h3>
       <span>
         {" "}
         Data from federated <pre>getInitalProps</pre>
       </span>
+      <Link href="/p/test">Test page</Link>
       <br />
       <pre>{JSON.stringify(props, null, 2)}</pre>
     </div>
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 20px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-    `}</style>
   </div>
 );
 Checkout.getInitialProps = async () => {
-  const swapi = await fetch("https://swapi.dev/api/people/1").then((res) =>
+  const swapi = await fetch("https://jsonplaceholder.typicode.com/todos/1").then((res) =>
     res.json()
   );
   return swapi;

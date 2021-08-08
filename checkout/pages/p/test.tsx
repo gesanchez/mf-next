@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Link from "next/link";
 
 const Test = (props: any) => (
   <div>
@@ -17,6 +18,7 @@ const Test = (props: any) => (
         {" "}
         Data from federated <pre>getInitalProps</pre>
       </span>
+      <Link href="/checkout">Checkout</Link>
       <br />
       <pre>{JSON.stringify(props, null, 2)}</pre>
     </div>
@@ -40,7 +42,7 @@ const Test = (props: any) => (
   </div>
 );
 Test.getInitialProps = async () => {
-  const swapi = await fetch("https://swapi.dev/api/people/1").then((res) =>
+  const swapi = await fetch("https://jsonplaceholder.typicode.com/todos/1").then((res) =>
     res.json()
   );
   return swapi;

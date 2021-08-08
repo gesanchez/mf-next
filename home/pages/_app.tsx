@@ -1,10 +1,15 @@
 import Nav from "../components/nav";
+import DashboardLayout from "../_layouts/dashboard";
+import "../_styles/index.css";
+
+
 function MyApp({ Component, pageProps }: any) {
   return (
     <>
-      <h1>Host: Home</h1>
       <Nav />
-      <Component {...pageProps} />
+      <DashboardLayout>
+        <Component {...pageProps} />
+      </DashboardLayout>
     </>
   );
 }

@@ -1,50 +1,55 @@
-import React from "react";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 
-const Nav = () => (
-  <nav>
-    <ul>
-      <li>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <Link href="/checkout">
-          <a>Checkout</a>
-        </Link>
-        <Link href="/p/test">
-          <a>Test</a>
-        </Link>
-      </li>
-    </ul>
+const Nav = () => {
+  const router = useRouter();
 
-    <style jsx>{`
-      :global(body) {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,
-          Helvetica, sans-serif;
-      }
-      nav {
-        text-align: center;
-      }
-      ul {
-        display: flex;
-        justify-content: space-between;
-      }
-      nav > ul {
-        padding: 4px 16px;
-      }
-      li {
-        display: flex;
-        padding: 6px 8px;
-      }
-      a {
-        color: #067df7;
-        text-decoration: none;
-        font-size: 13px;
-        padding-right: 10px;
-      }
-    `}</style>
-  </nav>
-);
+  return (
+    <div className="sidebar" data-color="white" data-active-color="danger">
+      <div className="logo">
+        <a href="https://www.creative-tim.com" className="simple-text logo-mini">
+          <div className="logo-image-small">
+            <img src="../assets/img/logo-small.png" />
+          </div>
+          <p>MF</p>
+        </a>
+        <a href="https://www.creative-tim.com" className="simple-text logo-normal">
+          Next MF Example
+          <div className="logo-image-big">
+            <img src="../assets/img/logo-big.png" />
+          </div>
+        </a>
+      </div>
+      <div className="sidebar-wrapper">
+        <ul className="nav">
+          <li className={router.asPath == "/" ? "active" : ""}>
+            <Link href="/">
+              <a>
+                <i className="nc-icon nc-bank"></i>
+                <p>Dashboard</p>
+              </a>
+            </Link>
+          </li>
+          <li className={router.asPath == "/checkout" ? "active" : ""}>
+            <Link href="/checkout">
+            <a>
+              <i className="nc-icon nc-diamond"></i>
+              <p>Checkout</p>
+            </a>
+            </Link>
+          </li>
+          <li className={router.asPath == "/p/test" ? "active" : ""}>
+            <Link href="/p/test">
+              <a>
+                <i className="nc-icon nc-pin-3"></i>
+                <p>Test</p>
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
 
 export default Nav;
