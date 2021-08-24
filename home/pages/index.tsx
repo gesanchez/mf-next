@@ -1,17 +1,7 @@
 import React from "react";
 import Head from "next/head";
-import dynamic from "next/dynamic";
+import ProfileBox from "../components/ProfileBox";
 
-// const RemoteTitle = dynamic(
-//   () => {
-//     return window.checkout?.get("./title").then((factory) => factory());
-//   },
-//   { 
-//     loading: () => <div>RemoteTitle is loading</div>,
-//     ssr: false
-//   }
-// );
-const RemoteTitle = dynamic(() => window.checkout?.get("./title").then((factory) => factory()), { ssr: false });
 
 
 const Home = ({}: any) => {
@@ -21,9 +11,12 @@ const Home = ({}: any) => {
         <title>Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <div className="hero">
-        <RemoteTitle />
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-4">
+            <ProfileBox></ProfileBox>
+          </div>
+        </div>
       </div>
     </div>
   );

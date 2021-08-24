@@ -1,8 +1,12 @@
 import Link from "next/link";
-import * as style from "./dashboard.module.css";
+import style from "./dashboard.module.css";
 import Nav from "../components/nav";
 
-export default function Dashboard({ children }) {
+type Props = {
+  children?: React.ReactNode;
+}
+
+export default function Dashboard({ children }: Props) {
   return (
     <>
       <Nav></Nav>

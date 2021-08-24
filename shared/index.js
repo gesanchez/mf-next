@@ -112,7 +112,7 @@ export function createFederatedCatchAll(remotes) {
         ...ctx,
         query: matchedPage.params,
       };
-      const federatedPageProps = (await FederatedPage.getInitialProps(modifiedContext)) || {};
+      const federatedPageProps = (FederatedPage) ? (await FederatedPage.getInitialProps(modifiedContext)): {};
       return { ...federatedPageProps, FederatedPage };
     } catch (err) {
       console.log("err", err);

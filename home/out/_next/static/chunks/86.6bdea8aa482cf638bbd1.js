@@ -1,0 +1,1 @@
+(self.webpackChunkhome=self.webpackChunkhome||[]).push([[86],{6086:function(e){"use strict";var s=Object.assign.bind(Object);e.exports=s,e.exports.default=e.exports}}]);

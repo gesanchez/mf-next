@@ -1,0 +1,1 @@
+(self.webpackChunkhome=self.webpackChunkhome||[]).push([[245],{6245:function(e,h,u){"use strict";u.r(h),h.default={"/":"./home"}}}]);

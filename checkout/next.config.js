@@ -1,4 +1,5 @@
 const { withFederatedSidecar } = require("@module-federation/nextjs-mf");
+const path = require('path');
 
 module.exports = withFederatedSidecar({
   name: "checkout",
@@ -16,9 +17,6 @@ module.exports = withFederatedSidecar({
     },
   },
 })({
-  future: {
-    webpack5: true
-  },
   webpack5: true,
   webpack(config, options) {
     const { webpack } = options;
@@ -32,16 +30,14 @@ module.exports = withFederatedSidecar({
     });
     if (options.isServer) {
       Object.assign(config.resolve.alias, {
-        checkout: false,
-        home: false,
+        checkout: false
       });
     } else {
       config.plugins.push(
         new webpack.container.ModuleFederationPlugin({
           remoteType: "var",
           remotes: {
-            home: "home",
-            checkout: "checkout",
+            checkout: "checkout"
           },
           shared: {
             "@module-federation/nextjs-mf/lib/noop": {
@@ -56,6 +52,12 @@ module.exports = withFederatedSidecar({
         })
       );
     }
+    config.resolve.alias['config'] = path.resolve(__dirname, 'config.js');
+
+    console.log(config.resolve.alias);
     return config;
   },
+  publicRuntimeConfig: {
+    basePath: "http://localhost:3000"
+  }
 });

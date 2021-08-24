@@ -17,9 +17,6 @@ module.exports = withFederatedSidecar({
     },
   },
 })({
-  future: {
-    webpack5: true
-  },
   webpack5: true,
   webpack(config, options) {
     const { webpack, isServer } = options;

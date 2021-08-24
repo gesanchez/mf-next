@@ -1,0 +1,1 @@
+(self.webpackChunkcheckout=self.webpackChunkcheckout||[]).push([[245],{6245:function(c,e,t){"use strict";t.r(e),e.default={"/checkout":"./checkout","/p/test":"./p/test"}}}]);

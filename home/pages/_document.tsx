@@ -3,25 +3,20 @@ import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/do
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
-    const mf = await Promise.resolve([{ name: 'checkout', url: 'http://localhost:3000/_next/static/chunks/remoteEntry.js'}]);
-    return { microapps: mf, ...initialProps };
+    // const mf = await Promise.resolve([{ name: 'checkout', url: 'http://localhost:3000/_next/static/chunks/remoteEntry.js'}]);
+    // return { microapps: mf, ...initialProps };
+    return { ...initialProps };
   }
 
   render() {
-    const { microapps } = this.props;
     return (
       <Html>
         <Head />
         <body>
-          { microapps.map((element) => {
-            return (
-              <script
-                key={element.name}
-                data-webpack={element.name}
-                src={element.url}
-              />
-            );
-          })}
+        <script
+            data-webpack="checkout"
+            src="http://localhost:3000/_next/static/chunks/remoteEntry.js"
+          />
           <Main />
           <NextScript />
         </body>

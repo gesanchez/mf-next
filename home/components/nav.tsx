@@ -7,17 +7,14 @@ const Nav = () => {
   return (
     <div className="sidebar" data-color="white" data-active-color="danger">
       <div className="logo">
-        <a href="https://www.creative-tim.com" className="simple-text logo-mini">
+        <a href="http://gesq.me" className="simple-text logo-mini">
           <div className="logo-image-small">
-            <img src="../assets/img/logo-small.png" />
+            <img src="/images/webpack.png" alt="Webpackk" />
           </div>
           <p>MF</p>
         </a>
-        <a href="https://www.creative-tim.com" className="simple-text logo-normal">
+        <a href="http://gesq.me" className="simple-text logo-normal">
           Next MF Example
-          <div className="logo-image-big">
-            <img src="../assets/img/logo-big.png" />
-          </div>
         </a>
       </div>
       <div className="sidebar-wrapper">
@@ -34,7 +31,7 @@ const Nav = () => {
             <Link href="/checkout">
             <a>
               <i className="nc-icon nc-diamond"></i>
-              <p>Checkout</p>
+              <p>Profile</p>
             </a>
             </Link>
           </li>
